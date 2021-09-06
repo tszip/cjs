@@ -1,2 +1,11 @@
 import { createRequire } from 'module';
-export const require = createRequire(import.meta.url);
+
+let requireToUse;
+
+if (typeof require === 'undefined') {
+  requireToUse = createRequire(import.meta.url);
+} else {
+  requireToUse = require;
+}
+
+export { requireToUse as require };
