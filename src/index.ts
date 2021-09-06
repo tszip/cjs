@@ -2,10 +2,10 @@ import { createRequire } from 'module';
 
 let requireToUse;
 
-if (typeof require === 'undefined') {
+if (typeof globalThis['require'] === 'undefined') {
   requireToUse = createRequire(import.meta.url);
 } else {
-  requireToUse = require;
+  requireToUse = globalThis['require'];
 }
 
 export { requireToUse as require };
