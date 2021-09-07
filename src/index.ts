@@ -1,9 +1,10 @@
-import { createRequire } from 'module';
+let useRequire = globalThis['require'];
 
-const builtinRequire = globalThis['require'];
-const useRequire =
-  typeof globalThis['require'] === 'undefined'
-    ? createRequire(import.meta.url)
-    : builtinRequire;
+if (typeof useRequire === 'undefined') {
+  await (async () => {
+    const { default: module } = await import('module');
+    useRequire = module.createRequire(import.meta.url);
+  });
+} 
 
 export { useRequire as require };
