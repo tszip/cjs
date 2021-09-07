@@ -2,7 +2,7 @@
   "name": "@tszip/esm-require",
   "author": "Christian Lewis <ctj.lewis@icloud.com>",
   "type": "module",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "license": "MIT",
   "engines": {
     "node": ">=14"
