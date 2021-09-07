@@ -1,10 +1,6 @@
-let useRequire = globalThis['require'];
-
-if (typeof useRequire === 'undefined') {
+if (typeof globalThis['require'] === 'undefined') {
   await (async () => {
     const { default: module } = await import('module');
-    useRequire = module.createRequire(import.meta.url);
+    globalThis['require'] = module.createRequire(import.meta.url);
   });
-} 
-
-export { useRequire as require };
+}
