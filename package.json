@@ -2,12 +2,15 @@
   "name": "@tszip/esm-require",
   "author": "Christian Lewis <ctj.lewis@icloud.com>",
   "type": "module",
-  "version": "0.2.7",
+  "version": "0.4.0",
   "license": "MIT",
   "engines": {
     "node": ">=14"
   },
   "scripts": {
+    "clean": "rm -rf dist",
+    "preboot": "yarn clean",
+    "boot": "tsc && rollup -c --silent",
     "start": "tszip watch",
     "build": "tszip build",
     "test": "tszip test",
